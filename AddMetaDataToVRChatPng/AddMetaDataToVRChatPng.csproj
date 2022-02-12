@@ -4,6 +4,14 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
+    <RepositoryType>git</RepositoryType>
+    <Authors>koturn</Authors>
+    <Description>A simple command-line tool to add metadata to VRChat PNG files.</Description>
+    <Copyright>Copyright (C) 2022 koturn All Rights Reserverd.</Copyright>
+    <PackageProjectUrl>https://github.com/koturn/AddMetaDataToVRChatPng</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/koturn/AddMetaDataToVRChatPng</RepositoryUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -13,5 +21,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
