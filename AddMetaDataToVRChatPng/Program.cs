@@ -46,7 +46,7 @@ namespace AddMetaDataToVRChatPng
 
         static void Main(string[] args)
         {
-            var regex = new Regex(@"^VRChat_\d+x\d+_(\d+)-(\d+)-(\d+)_(\d+)-(\d+)-(\d+)\.(\d+)\.png$");
+            var regex = new Regex(@"^VRChat_\d+x\d+_(\d+)-(\d+)-(\d+)_(\d+)-(\d+)-(\d+)\.(\d+)\.png$", RegexOptions.Compiled);
             var pmo = new PngModifyOptions("yyyy:MM:dd HH:mm:ss.fff", true);
             foreach (var srcFilePath in Directory.EnumerateFiles(args[0]))
             {
