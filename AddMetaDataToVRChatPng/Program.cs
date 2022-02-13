@@ -52,8 +52,9 @@ namespace AddMetaDataToVRChatPng
             {
                 try
                 {
-                    var srcDirPath = Path.GetDirectoryName(srcFilePath);
-                    var dstDirPath = srcDirPath + ".zopfli";
+                    var dstFilePath = Path.Combine(
+                        Path.GetDirectoryName(srcFilePath) ?? "",
+                        Path.GetFileNameWithoutExtension(srcFilePath) + ".tmp" + Path.GetExtension(srcFilePath));
 
                     var fileName = Path.GetFileName(srcFilePath);
                     var match = regex.Match(fileName);
@@ -65,8 +66,6 @@ namespace AddMetaDataToVRChatPng
 
                     Console.WriteLine("Modify {0} ...", srcFilePath);
 
-                    Directory.CreateDirectory(dstDirPath);
-
                     var dt = new DateTime(
                         int.Parse(groups[1].Value),
                         int.Parse(groups[2].Value),
@@ -75,7 +74,6 @@ namespace AddMetaDataToVRChatPng
                         int.Parse(groups[5].Value),
                         int.Parse(groups[6].Value),
                         int.Parse(groups[7].Value));
-                    var dstFilePath = Path.Combine(dstDirPath, fileName);
 
                     using (var ifs = new FileStream(srcFilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
                     using (var ofs = new FileStream(dstFilePath, FileMode.Create, FileAccess.Write, FileShare.Read))
