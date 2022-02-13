@@ -56,8 +56,7 @@ namespace AddMetaDataToVRChatPng
                         Path.GetDirectoryName(srcFilePath) ?? "",
                         Path.GetFileNameWithoutExtension(srcFilePath) + ".tmp" + Path.GetExtension(srcFilePath));
 
-                    var fileName = Path.GetFileName(srcFilePath);
-                    var match = regex.Match(fileName);
+                    var match = regex.Match(Path.GetFileName(srcFilePath));
                     var groups = match.Groups;
                     if (!match.Success || groups.Count < 8)
                     {
